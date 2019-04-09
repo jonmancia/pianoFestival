@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="BYUI Spring 2019 Piano Festival Sign up Form.">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Stylesheet -->
+
+    <link rel="stylesheet" href="main.css">
+    <!-- Script -->
+
+    <script src="index.js"></script>
+
+    <title>Piano Festival Sign-up</title>
+
+</head>
+
+<body onload="getFileContents()">
+
+    <div class="header">
+
+        <h1 class="white">Piano Festival Sign Up</h1>
+
+    </div>
+
+    <div class="container">
+
+        <form id="main-form">
+
+            <label for="Performance-Type">Performance Type:</label>
+
+            <select name="Performance-Type" id="performance-type" onchange="handlePerformanceType(this)">
+
+                <option value="Solo">Solo</option>
+
+                <option value="Duet">Duet</option>
+
+                <option value="Concerto">Concerto</option>
+
+            </select>
+
+            <br>
+
+            <div id="duetStudentForm" class="hide">
+
+                <h5 style="padding-top: 2%; border-bottom: 1px #FF6700 solid; padding-bottom: 2%;">Student #1</h5>
+
+                <label for="duet1-first-name">First Name:</label>
+
+                <input type="text" name="duet1-first-name" id="duet1-first-name" placeholder="John" onchange="removeBorder(this)">
+
+                <br>
+
+                <label for="duet1-last-name">Last Name:</label>
+
+                <input type="text" name="duet1-last-name" id="duet1-last-name" placeholder="Doe" onchange="removeBorder(this)">
+
+                <br>
+
+                <label for="duet1-student-id">Student ID:</label>
+
+                <input type="text" name="duet1-student-id" id="duet1-student-id" placeholder="789123567" onchange="removeBorder(this)">
+
+                <h5 style="padding-top: 2%; border-bottom: 1px #FF6700 solid;padding-bottom: 2%;">Student #2</h5>
+
+                <label for="duet2-first-name">First Name:</label>
+
+                <input type="text" name="duet2-first-name" id="duet2-first-name" placeholder="Jane" onchange="removeBorder(this)">
+
+                <br>
+
+                <label for="duet2-last-name">Last Name:</label>
+
+                <input type="text" name="duet2-last-name" id="duet2-last-name" placeholder="Doe" onchange="removeBorder(this)">
+
+                <br>
+
+                <label for="duet2-student-id">Student ID:</label>
+
+                <input type="text" name="duet2-student-id" id="duet2-student-id" placeholder="123 456 789" onchange="removeBorder(this)">
+
+                <h5 style="padding-top: 2%; border-bottom: 1px #FF6700 solid;padding-bottom: 2%; margin-bottom: 2%;"></h5>
+
+            </div>
+
+            <div id="singleStudentForm" class="show">
+
+                <label for="first-name">First Name:</label>
+
+                <input type="text" name="first-name" id="first-name" placeholder="John" onchange="removeBorder(this)">
+
+                <br>
+
+                <label for="last-name">Last Name:</label>
+
+                <input type="text" name="last-name" id="last-name" placeholder="Doe" onchange="removeBorder(this)">
+
+                <br>
+
+                <label for="student-id">Student ID:</label>
+
+                <input type="text" name="student-id" id="student-id" placeholder="98712356" onchange="removeBorder(this)">
+
+                <br>
+
+            </div>
+
+            <label for="skill-level">Skill Level:</label>
+
+            <select name="skill-level" id="skill-level" onchange="removeBorder(this)">
+
+                <option value="Beginner" selected>Beginner</option>
+
+                <option value="Intermediate">Intermediate</option>
+
+                <option value="Pre-Advanced">Pre-Advanced</option>
+
+                <option value="Advanced">Advanced</option>
+
+            </select>
+
+            <label for="instrument">Instrument:</label>
+
+            <select name="instrument" id="instrument" onchange="removeBorder(this)">
+
+                <option value="Piano" selected>Piano</option>
+
+                <option value="Voice">Voice</option>
+
+                <option value="String">String</option>
+
+                <option value="Organ">Organ</option>
+
+                <option value="Other">Other</option>
+
+            </select>
+
+            <br>
+
+            <label for="location">Location:</label>
+
+            <input type="text" name="location" id="location" placeholder="Austin" onchange="removeBorder(this)">
+
+            <br>
+
+            <label for="room">Room #:</label>
+
+            <input type="text" name="room" id="room" placeholder="275" onchange="removeBorder(this)">
+
+            <br>
+
+            <label for="time-slot">Time Slot:</label>
+
+            <select name="time-slot" id="time-slot" onchange="removeBorder(this)">
+
+                <option value="8AM">8AM</option>
+
+                <option value="8:30AM">8:30AM</option>
+
+                <option value="9AM">9AM</option>
+
+                <option value="9:30AM">9:30AM</option>
+
+                <option value="10AM">10AM</option>
+
+                <option value="10:30AM">10:30AM</option>
+
+                <option value="11AM">11AM</option>
+
+                <option value="11:30AM">11:30AM</option>
+
+                <option value="12PM">12PM</option>
+
+                <option value="12:30PM">12:30PM</option>
+
+                <option value="1PM">1PM</option>
+
+                <option value="1:30PM">1:30PM</option>
+
+                <option value="2PM">2PM</option>
+
+            </select>
+
+            <div class="buttons-box">
+
+                <button type="button" onclick="validateForm()">Register</button>
+
+                <button type="reset">Clear Form</button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="container" style="margin-top: 5%; min-height: 25vh;">
+
+        <h2 style="text-align: center;">Sign ups</h2>
+
+        <div id="registered-students">
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
